@@ -7,6 +7,23 @@ Repo guide and organization:
 - `data-preprocessing` is a repo with a formal `targets` pipeline used to download, gather, harmonize, and munge any input data for later use in modeling. The data prepared through this repo's pipeline are pushed to Google Drive.
 - `model-[domain]-[method]` refer to repos that contain modeling code (e.g. `model-streamflow-bayes`, `model-streamflow-lstm`). These repos are named following that convention to maintain organization.
 
+### Quick example of using R code to download the Google Drive files in our Data folder 
+
+Use this code as an example of how to pull down data from Google Drive so that you are using the most up-to-date info. Also, use code like this (or in Python) in any modeling repos so that it always starts with the same, shared data we are all working with. Note that you will have to login using the same credentials for which the CZ Synchrony Google Drive space is shared to run these commands.
+
+```r
+# Install this package if you do not already have it
+library(googledrive) 
+
+# Interatively authenticate to have access to Google Drive
+drive_auth()
+
+# Download a file
+# By default, it will be downloaded with the same name to your current working directory
+drive_download('ameriflux_site_info.csv')
+
+```
+
 <!--
 
 **Here are some ideas to get you started:**
